@@ -1,0 +1,137 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>traXpenses</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e0f7fa;
+            color: #00796b;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h1 {
+            color: #004d40;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        input, select, button {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #b2dfdb;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4db6ac;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #00897b;
+        }
+        .expense-list {
+            list-style: none;
+            padding: 0;
+        }
+        .expense-item {
+            background-color: #e0f2f1;
+            border: 1px solid #80cbc4;
+            border-radius: 5px;
+            margin: 5px 0;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .expense-details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .expense-category {
+            font-size: 0.9em;
+            color: #00796b;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            input, select, button {
+                width: calc(100% - 15px);
+                padding: 8px;
+                margin: 8px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" role="main">
+        <h1 tabindex="0">traXpensive</h1>
+        <label for="expenseName" class="visually-hidden">Expense Name</label>
+        <input type="text" id="expenseName" placeholder="Expense Name" aria-label="Expense Name">
+        
+        <label for="expenseAmount" class="visually-hidden">Amount</label>
+        <input type="number" id="expenseAmount" placeholder="Amount" aria-label="Amount">
+        
+        <label for="expenseCategory" class="visually-hidden">Category</label>
+        <select id="expenseCategory" aria-label="Expense Category">
+            <option value="Food">Food</option>
+            <option value="Travel">Travel</option>
+            <option value="Utilities">Utilities</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Others">Others</option>
+        </select>
+        
+        <button onclick="addExpense()">Add Expense</button>
+        <ul class="expense-list" id="expenseList"></ul>
+    </div>
+    <script>
+        function addExpense() {
+            const name = document.getElementById('expenseName').value;
+            const amount = document.getElementById('expenseAmount').value;
+            const category = document.getElementById('expenseCategory').value;
+            
+            if (name && amount && category) {
+                const expenseList = document.getElementById('expenseList');
+                const li = document.createElement('li');
+                li.className = 'expense-item';
+                li.innerHTML = `
+                    <div class="expense-details">
+                        <span>${name}: $${amount}</span>
+                        <span class="expense-category">${category}</span>
+                    </div>
+                    <button onclick="removeExpense(this)">Remove</button>
+                `;
+                expenseList.appendChild(li);
+                document.getElementById('expenseName').value = '';
+                document.getElementById('expenseAmount').value = '';
+                document.getElementById('expenseCategory').value = 'Food';
+            }
+        }
+        function removeExpense(button) {
+            const li = button.parentElement;
+            li.remove();
+        }
+    </script>
+</body>
+</html>
