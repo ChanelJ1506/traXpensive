@@ -37,6 +37,7 @@ const App = () => {
                     <div className="app-content">
                         <Routes>
                             <Route path="/" element={<Home />} />
+                            <Route path="/home" element={<Home />} />
                             <Route path="/about" element={<About />} />
                         </Routes>
                         <Dialog open={login} onClose={() => setLogin(false)}>

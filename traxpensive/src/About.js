@@ -38,21 +38,21 @@ const About = () => {
                         <img src="adeline.png" alt="Gaizkia Adeline Atmaka" />
                         <div className="info">
                             <h3>Gaizkia Adeline Atmaka</h3>
-                            <p>[Short bio about Co-Founder 1, including their background and role in the company.]</p>
+                            <p>[Computer Science & Mathematics student with a keen interest in Machine Learning, continually developing skills for a future career in the field.]</p>
                         </div>
                     </div>
                     <div className="founder">
                         <img src="vero.png" alt="Veronica Dwiyanti" />
                         <div className="info">
                             <h3>Veronica Dwiyanti</h3>
-                            <p>[Short bio about Co-Founder 2, including their background and role in the company.]</p>
+                            <p>[Mobile Application and Technology student passionate about UI/UX design, mobile development, AI, and machine learning, combining creativity with technical expertise.]</p>
                         </div>
                     </div>
                     <div className="founder">
                         <img src="fatih.png" alt="Fatih" />
                         <div className="info">
                             <h3>Fatih</h3>
-                            <p>[Short bio about Co-Founder 3, including their background and role in the company.]</p>
+                            <p>[High schooler with HTML, Python, CSS, and JavaScript Stack who will be majoring in Electrical Engineering & Computer Science.]</p>
                         </div>
                     </div>
                 </section>
